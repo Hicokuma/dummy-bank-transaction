@@ -7,10 +7,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Account {
 
     private Integer id;
 
-    private String name;
+    private Integer ownerId;
 
+    String currency;
+
+    Double balance;
 }

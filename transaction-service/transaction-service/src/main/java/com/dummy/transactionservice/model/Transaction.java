@@ -4,13 +4,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Transaction {
 
     private Integer id;
 
-    private String name;
+    private Integer senderId;
 
+    private Integer recipientId;
+
+    private LocalDateTime time;
+
+    private double amount;
 }

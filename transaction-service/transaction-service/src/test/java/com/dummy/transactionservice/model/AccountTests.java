@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class UserTests {
+public class AccountTests {
 
     @Test
     public void modelExists() {
-        assertNotNull(new User());
+        assertNotNull(new Account());
     }
 }
