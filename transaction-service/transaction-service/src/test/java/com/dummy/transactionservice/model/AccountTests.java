@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class AccountTests {
 
     @Test
-    public void modelExists() {
+    void modelExists() {
         assertNotNull(new Account());
     }
 }
