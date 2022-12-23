@@ -19,11 +19,7 @@ public class TestData {
 
     public static List<User> getTestUserList() {
 
-        User user = new User();
-        user.setId(1);
-        user.setName("Jim");
-
-        return Arrays.asList(user);
+        return Arrays.asList(getTestUser());
     }
 
     public static Account getTestAccount() {
@@ -36,5 +32,10 @@ public class TestData {
         account.setCurrency("GBP");
 
         return account;
+    }
+
+    public static List<Account> getTestAccountList() {
+
+        return Arrays.asList(getTestAccount());
     }
 }

@@ -10,7 +10,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static com.dummy.transactionservice.TestData.getTestAccount;
+import static com.dummy.transactionservice.TestData.getTestAccountList;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
@@ -31,11 +33,19 @@ public class AccountServiceTests {
     AccountRepository accountRepository;
 
     @Test
-    void canCreateOneAccount () {
+    void canCreateOneAccount() {
 
         doAnswer(i -> i.getArguments()[0]).when(accountRepository).save(any(Account.class));
 
         assertReflectionEquals(getTestAccount(), accountService.createAccount(getTestAccount()));
         verify(accountRepository).save(getTestAccount());
+    }
+
+    @Test
+    void canFetchAccountsByUserId() {
+
+        doReturn(getTestAccountList()).when(accountRepository).findAllByUserId(anyInt());
+
+        assertReflectionEquals(getTestAccountList(), accountService.getAccountByUserId(1));
     }
 }
