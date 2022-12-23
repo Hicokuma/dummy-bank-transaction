@@ -1,7 +1,7 @@
 package com.dummy.transactionservice;
 
+import com.dummy.transactionservice.model.Account;
 import com.dummy.transactionservice.model.User;
-import net.bytebuddy.dynamic.DynamicType;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +14,7 @@ public class TestData {
         User user = new User();
         user.setId(1);
         user.setName("Jim");
+
         return Optional.of(user);
     }
 
@@ -22,6 +23,7 @@ public class TestData {
         User user = new User();
         user.setId(1);
         user.setName("Jimmy");
+
         return user;
     }
 
@@ -32,5 +34,17 @@ public class TestData {
         user.setName("Jim");
 
         return Arrays.asList(user);
+    }
+
+    public static Account getTestAccountDetails () {
+
+        Account account = new Account();
+
+        account.setId(10);
+        account.setOwnerId(1);
+        account.setBalance(100d);
+        account.setCurrency("GBP");
+
+        return account;
     }
 }
