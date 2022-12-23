@@ -28,10 +28,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User createUser(User userDetail) {
+
+        return userRepository.save(userDetail);
+    }
+
+    @Override
     public User updateUserById(Integer id, User userDetails) {
 
         User user = this.getUserById(id).get();
         user.setName(userDetails.getName());
-        return userRepository.save(user); // Todo: is it the right thing to return?
+        return userRepository.save(user); // Todo: is it the right thing to return? should we return Optional?
+    }
+
+    @Override
+    public void deleteUserById(Integer id) {
+
+        userRepository.deleteById(id);
     }
 }

@@ -3,7 +3,6 @@ package com.dummy.transactionservice.service;
 import com.dummy.transactionservice.model.User;
 import com.dummy.transactionservice.repository.UserRepository;
 import com.dummy.transactionservice.service.serviceImpl.UserServiceImpl;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,6 +17,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.verify;
 import static org.unitils.reflectionassert.ReflectionAssert.assertReflectionEquals;
 
 @ExtendWith(MockitoExtension.class)
@@ -50,11 +50,27 @@ public class UserServiceTests {
     }
 
     @Test
+    void canCreateOneUser(){
+
+        doAnswer(i -> i.getArguments()[0]).when(userRepository).save(any(User.class));
+
+        assertReflectionEquals(getTestUserDetails(), userService.createUser(getTestUserDetails()));
+    }
+
+    @Test
     void canUpdateOneUser() {
 
         doReturn(getTestUser()).when(userRepository).findById(anyInt());
         doAnswer(i -> i.getArguments()[0]).when(userRepository).save(any(User.class));
 
-        assertEquals(getTestUserDetails().getName(), userService.updateUserById(1, getTestUserDetails()).getName());
+        assertEquals(getTestUserDetails().getName(), userService.updateUserById(1, getTestUserDetails()).getName()); // check returned value
+        verify(userRepository).save(getTestUserDetails()); // check that the right entity is saved
+    }
+
+    @Test
+    void canDeleteOneUser() {
+
+        userService.deleteUserById(1);
+        verify(userRepository).deleteById(1);
     }
 }

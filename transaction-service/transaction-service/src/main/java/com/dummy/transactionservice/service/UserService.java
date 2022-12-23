@@ -10,5 +10,9 @@ public interface UserService {
 
     Optional<User> getUserById(Integer id);
 
-    User updateUserById(Integer i, User testUserDetails);
+    User updateUserById(Integer id, User userDetail);
+
+    User createUser(User userDetail);
+
+    void deleteUserById(Integer id);
 }
