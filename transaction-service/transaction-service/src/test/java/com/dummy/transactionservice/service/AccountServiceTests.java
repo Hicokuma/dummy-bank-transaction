@@ -9,7 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static com.dummy.transactionservice.TestData.getTestAccountDetails;
+import static com.dummy.transactionservice.TestData.getTestAccount;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doReturn;
@@ -35,7 +35,7 @@ public class AccountServiceTests {
 
         doAnswer(i -> i.getArguments()[0]).when(accountRepository).save(any(Account.class));
 
-        assertReflectionEquals(getTestAccountDetails(), accountService.createAccount(getTestAccountDetails()));
-        verify(accountRepository).save(getTestAccountDetails());
+        assertReflectionEquals(getTestAccount(), accountService.createAccount(getTestAccount()));
+        verify(accountRepository).save(getTestAccount());
     }
 }

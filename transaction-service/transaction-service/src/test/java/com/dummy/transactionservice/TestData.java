@@ -5,20 +5,10 @@ import com.dummy.transactionservice.model.User;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 public class TestData {
 
-    public static Optional<User> getTestUser() {
-
-        User user = new User();
-        user.setId(1);
-        user.setName("Jim");
-
-        return Optional.of(user);
-    }
-
-    public static User getTestUserDetails() {
+    public static User getTestUser() {
 
         User user = new User();
         user.setId(1);
@@ -36,7 +26,7 @@ public class TestData {
         return Arrays.asList(user);
     }
 
-    public static Account getTestAccountDetails () {
+    public static Account getTestAccount() {
 
         Account account = new Account();
 

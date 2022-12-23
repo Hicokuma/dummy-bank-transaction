@@ -9,8 +9,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
 import static com.dummy.transactionservice.TestData.getTestUser;
-import static com.dummy.transactionservice.TestData.getTestUserDetails;
 import static com.dummy.transactionservice.TestData.getTestUserList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -44,9 +45,9 @@ public class UserServiceTests {
     @Test
     void canFetchOneUser() {
 
-        doReturn(getTestUser()).when(userRepository).findById(anyInt());
+        doReturn(Optional.of(getTestUser())).when(userRepository).findById(anyInt());
 
-        assertReflectionEquals(getTestUser().get(), userService.getUserById(1).get());
+        assertReflectionEquals(getTestUser(), userService.getUserById(1).get());
     }
 
     @Test
@@ -54,17 +55,21 @@ public class UserServiceTests {
 
         doAnswer(i -> i.getArguments()[0]).when(userRepository).save(any(User.class));
 
-        assertReflectionEquals(getTestUserDetails(), userService.createUser(getTestUserDetails()));
+        assertReflectionEquals(getTestUser(), userService.createUser(getTestUser()));
+        verify(userRepository).save(getTestUser());
     }
 
     @Test
     void canUpdateOneUser() {
 
-        doReturn(getTestUser()).when(userRepository).findById(anyInt());
+        doReturn(Optional.of(getTestUser())).when(userRepository).findById(anyInt());
         doAnswer(i -> i.getArguments()[0]).when(userRepository).save(any(User.class));
 
-        assertEquals(getTestUserDetails().getName(), userService.updateUserById(1, getTestUserDetails()).getName()); // check returned value
-        verify(userRepository).save(getTestUserDetails()); // check that the right entity is saved
+        User userUpdated = getTestUser();
+        userUpdated.setName("Jimmy");
+
+        assertEquals(getTestUser().getName(), userService.updateUserById(1, userUpdated).getName()); // check returned value
+        verify(userRepository).save(getTestUser()); // check that the right entity is saved
     }
 
     @Test
