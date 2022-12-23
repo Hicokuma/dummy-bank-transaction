@@ -9,8 +9,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
 import static com.dummy.transactionservice.TestData.getTestAccount;
 import static com.dummy.transactionservice.TestData.getTestAccountList;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.doAnswer;
@@ -46,6 +50,26 @@ public class AccountServiceTests {
 
         doReturn(getTestAccountList()).when(accountRepository).findAllByUserId(anyInt());
 
-        assertReflectionEquals(getTestAccountList(), accountService.getAccountByUserId(1));
+        assertReflectionEquals(getTestAccountList(), accountService.getAccountsByUserId(1));
+    }
+
+    @Test
+    void canDeleteAnAccount_ifBalanceIsZero() {
+
+        Account account = getTestAccount();
+        account.setBalance(0d);
+
+        doReturn(Optional.of(account)).when(accountRepository).findById(anyInt());
+        assertTrue(accountService.deleteAccountById(1));
+    }
+
+    @Test
+    void cannotDeleteAnAccount_ifBalanceIsNotZero() {
+
+        Account account = getTestAccount();
+        account.setBalance(100d);
+
+        doReturn(Optional.of(account)).when(accountRepository).findById(anyInt());
+        assertFalse(accountService.deleteAccountById(1));
     }
 }

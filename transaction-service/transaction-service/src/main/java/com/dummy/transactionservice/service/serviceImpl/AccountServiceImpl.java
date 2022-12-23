@@ -6,6 +6,7 @@ import com.dummy.transactionservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 
 public class AccountServiceImpl implements AccountService {
 
@@ -19,8 +20,22 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<Account> getAccountByUserId(int userId) {
+    public List<Account> getAccountsByUserId(int userId) {
 
         return accountRepository.findAllByUserId(userId);
+    }
+
+    @Override
+    public boolean deleteAccountById(Integer accountId) {
+
+        Optional<Account> accountOptional = accountRepository.findById(accountId);
+        if(accountOptional.isPresent()) {
+
+            if(accountOptional.get().getBalance() == 0) {
+                accountRepository.deleteById(accountId);
+                return true;
+            }
+        }
+        return false;
     }
 }

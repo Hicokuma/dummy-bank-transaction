@@ -7,5 +7,7 @@ import java.util.List;
 public interface AccountService {
     Account createAccount(Account account);
 
-    List<Account> getAccountByUserId(int userId);
+    List<Account> getAccountsByUserId(int userId);
+
+    boolean deleteAccountById(Integer accountId);
 }
