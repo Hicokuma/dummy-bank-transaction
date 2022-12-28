@@ -13,6 +13,7 @@ import java.util.Optional;
 
 import static com.dummy.transactionservice.TestData.getTestAccount;
 import static com.dummy.transactionservice.TestData.getTestAccountList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
@@ -29,6 +30,7 @@ public class AccountServiceTests {
     //  1) create account
     //  2) list accounts for a user
     //  3) delete account (can only be deleted if balance = 0)
+    //  4) update account balance by account ID - will be used by TransactionService
 
     @InjectMocks
     AccountServiceImpl accountService;
@@ -71,5 +73,18 @@ public class AccountServiceTests {
 
         doReturn(Optional.of(account)).when(accountRepository).findById(anyInt());
         assertFalse(accountService.deleteAccountById(1));
+    }
+
+    @Test
+    void canUpdateAccountBalance() {
+
+        Account account = getTestAccount();
+        account.setBalance(account.getBalance() - 50);
+
+        doReturn(Optional.of(account)).when(accountRepository).findById(anyInt());
+        doAnswer(i -> i.getArguments()[0]).when(accountRepository).save(any(Account.class));
+
+        accountService.updateAccountBalanceById(1, -50);
+        verify(accountRepository).save(account);
     }
 }

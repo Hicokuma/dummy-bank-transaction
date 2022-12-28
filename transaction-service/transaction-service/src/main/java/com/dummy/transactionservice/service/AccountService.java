@@ -10,4 +10,6 @@ public interface AccountService {
     List<Account> getAccountsByUserId(int userId);
 
     boolean deleteAccountById(Integer accountId);
+
+    void updateAccountBalanceById(int id, double increment);
 }

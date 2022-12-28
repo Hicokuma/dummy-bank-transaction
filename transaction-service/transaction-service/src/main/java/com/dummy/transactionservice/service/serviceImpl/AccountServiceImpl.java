@@ -38,4 +38,13 @@ public class AccountServiceImpl implements AccountService {
         }
         return false;
     }
+
+    @Override
+    public void updateAccountBalanceById(int id, double increment) {
+
+        Account account = accountRepository.findById(id).get();
+        account.setBalance(account.getBalance() + increment);
+
+        accountRepository.save(account);
+    }
 }
