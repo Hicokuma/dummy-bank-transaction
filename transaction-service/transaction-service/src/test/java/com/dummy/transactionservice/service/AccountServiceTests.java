@@ -62,7 +62,7 @@ public class AccountServiceTests {
         account.setBalance(0d);
 
         doReturn(Optional.of(account)).when(accountRepository).findById(anyInt());
-        assertTrue(accountService.deleteAccountById(1));
+        assertTrue(accountService.deleteAccountByIdIfZeroBalance(1));
     }
 
     @Test
@@ -72,7 +72,7 @@ public class AccountServiceTests {
         account.setBalance(100d);
 
         doReturn(Optional.of(account)).when(accountRepository).findById(anyInt());
-        assertFalse(accountService.deleteAccountById(1));
+        assertFalse(accountService.deleteAccountByIdIfZeroBalance(1));
     }
 
     @Test

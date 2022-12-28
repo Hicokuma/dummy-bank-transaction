@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> getUserById(Integer id) {
+    public Optional<User> getUserById(int id) {
 
         return userRepository.findById(id); // Todo: .orElseThrow(() -> new ResourceNotFoundException(...))
     }
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUserById(Integer id, User userDetails) {
+    public User updateUserById(int id, User userDetails) {
 
         User user = this.getUserById(id).get();
         user.setName(userDetails.getName());
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUserById(Integer id) {
+    public void deleteUserById(int id) {
 
         userRepository.deleteById(id);
     }

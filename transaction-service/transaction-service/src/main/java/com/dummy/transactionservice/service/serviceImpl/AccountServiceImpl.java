@@ -26,7 +26,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public boolean deleteAccountById(Integer accountId) {
+    public boolean deleteAccountByIdIfZeroBalance(int accountId) {
 
         Optional<Account> accountOptional = accountRepository.findById(accountId);
         if(accountOptional.isPresent()) {

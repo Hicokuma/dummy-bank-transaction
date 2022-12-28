@@ -9,7 +9,7 @@ public interface AccountService {
 
     List<Account> getAccountsByUserId(int userId);
 
-    boolean deleteAccountById(Integer accountId);
+    boolean deleteAccountByIdIfZeroBalance(int accountId);
 
     void updateAccountBalanceById(int id, double increment);
 }
