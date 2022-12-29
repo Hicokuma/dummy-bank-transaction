@@ -1,4 +1,4 @@
-package com.dummy.transactionservice.model;
+package com.dummy.transactionapi.model;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.dummy.transactionservice.Enum;
+package com.dummy.transactionapi.Enum;
 
 public enum TransactionType {
 

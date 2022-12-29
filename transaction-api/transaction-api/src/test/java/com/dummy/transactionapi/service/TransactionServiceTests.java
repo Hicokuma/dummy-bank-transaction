@@ -1,4 +1,4 @@
-package com.dummy.transactionservice.service;
+package com.dummy.transactionapi.service;
 
 public class TransactionServiceTests {
 

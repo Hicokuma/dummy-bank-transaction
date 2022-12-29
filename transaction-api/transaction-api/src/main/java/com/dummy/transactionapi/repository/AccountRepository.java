@@ -1,6 +1,6 @@
-package com.dummy.transactionservice.repository;
+package com.dummy.transactionapi.repository;
 
-import com.dummy.transactionservice.model.Account;
+import com.dummy.transactionapi.model.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

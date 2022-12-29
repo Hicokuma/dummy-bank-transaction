@@ -1,8 +1,8 @@
-package com.dummy.transactionservice.service.serviceImpl;
+package com.dummy.transactionapi.service.serviceImpl;
 
-import com.dummy.transactionservice.model.User;
-import com.dummy.transactionservice.repository.UserRepository;
-import com.dummy.transactionservice.service.UserService;
+import com.dummy.transactionapi.model.User;
+import com.dummy.transactionapi.repository.UserRepository;
+import com.dummy.transactionapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

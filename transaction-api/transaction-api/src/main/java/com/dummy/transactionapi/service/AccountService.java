@@ -1,6 +1,6 @@
-package com.dummy.transactionservice.service;
+package com.dummy.transactionapi.service;
 
-import com.dummy.transactionservice.model.Account;
+import com.dummy.transactionapi.model.Account;
 
 import java.util.List;
 

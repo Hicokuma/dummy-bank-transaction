@@ -1,8 +1,8 @@
-package com.dummy.transactionservice.service.serviceImpl;
+package com.dummy.transactionapi.service.serviceImpl;
 
-import com.dummy.transactionservice.model.Account;
-import com.dummy.transactionservice.repository.AccountRepository;
-import com.dummy.transactionservice.service.AccountService;
+import com.dummy.transactionapi.model.Account;
+import com.dummy.transactionapi.repository.AccountRepository;
+import com.dummy.transactionapi.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

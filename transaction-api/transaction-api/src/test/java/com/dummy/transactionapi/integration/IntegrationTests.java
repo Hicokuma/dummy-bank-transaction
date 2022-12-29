@@ -1,4 +1,4 @@
-package com.dummy.transactionservice.integration;
+package com.dummy.transactionapi.integration;
 
 public class IntegrationTests {
     // TODO: test integration to database

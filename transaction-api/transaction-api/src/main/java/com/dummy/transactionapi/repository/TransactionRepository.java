@@ -1,6 +1,6 @@
-package com.dummy.transactionservice.repository;
+package com.dummy.transactionapi.repository;
 
-import com.dummy.transactionservice.model.Transaction;
+import com.dummy.transactionapi.model.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {

@@ -1,4 +1,4 @@
-package com.dummy.transactionservice;
+package com.dummy.transactionapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.dummy.transactionservice.model;
+package com.dummy.transactionapi.model;
 
-import com.dummy.transactionservice.Enum.TransactionType;
+import com.dummy.transactionapi.Enum.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

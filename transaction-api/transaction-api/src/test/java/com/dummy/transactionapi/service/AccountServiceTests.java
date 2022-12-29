@@ -1,8 +1,8 @@
-package com.dummy.transactionservice.service;
+package com.dummy.transactionapi.service;
 
-import com.dummy.transactionservice.model.Account;
-import com.dummy.transactionservice.repository.AccountRepository;
-import com.dummy.transactionservice.service.serviceImpl.AccountServiceImpl;
+import com.dummy.transactionapi.model.Account;
+import com.dummy.transactionapi.repository.AccountRepository;
+import com.dummy.transactionapi.service.serviceImpl.AccountServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -11,8 +11,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
-import static com.dummy.transactionservice.TestData.getTestAccount;
-import static com.dummy.transactionservice.TestData.getTestAccountList;
+import static com.dummy.transactionapi.TestData.getTestAccount;
+import static com.dummy.transactionapi.TestData.getTestAccountList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
