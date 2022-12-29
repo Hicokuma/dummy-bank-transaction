@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dummy</groupId>
-	<artifactId>transaction-service</artifactId>
+	<artifactId>transaction-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>transaction-service</name>
 	<description>Demo project for Spring Boot</description>
