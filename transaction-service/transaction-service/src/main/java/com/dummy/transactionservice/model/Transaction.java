@@ -1,5 +1,6 @@
 package com.dummy.transactionservice.model;
 
+import com.dummy.transactionservice.Enum.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,9 +14,11 @@ public class Transaction {
 
     private Integer id;
 
-    private Integer senderId;
+    private String transactionId;
 
-    private Integer recipientId;
+    private Integer accountId;
+
+    private TransactionType type;
 
     private LocalDateTime time;
 
